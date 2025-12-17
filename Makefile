@@ -1,6 +1,6 @@
 CC := gcc
-CFLAGS := $(shell pkg-config --cflags gtk4)
-LDFLAGS := $(shell pkg-config --libs gtk4)
+CFLAGS := $(shell pkg-config)# --cflags gtk4)
+LDFLAGS := $(shell pkg-config)# --libs gtk4)
 TARGET := app
 
 all: $(TARGET)

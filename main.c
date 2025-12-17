@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <getopt.h>
 #include <mupdf/fitz.h>
-#include <gtk/gtk.h>
 #include "flags.c"
 #include "pdfRendering.c"
 

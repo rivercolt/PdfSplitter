@@ -38,12 +38,33 @@ struct pdfFlags handleFlags(int argc, char *argv[]) {
                 printf("filename: %s\n", optarg);
                 break;
             case 'p':
-                defArgs.start = atoi(optarg);
+		char *endptr;
+		defArgs.start = strtol(optarg, &endptr, 10);
+		if (endptr == optarg) {
+			defArgs.start = 1;
+			printf("Using default value for start, value provided was not an integer.\n");
+		}
+		else if (*endptr != '\0') {
+			defArgs.start = 1;
+			printf("Using default value for start, value provided was not an integer.\n");
+				}
+		else {};
                 printf("index %d\n", defArgs.start);
                 break;
+
             case 's':
-                defArgs.split = atoi(optarg);
-                printf("split into %s\n", optarg);
+	char *endptr2;
+		defArgs.split = strtol(optarg, &endptr, 10);
+		if (endptr == optarg) {
+			defArgs.split = 2;
+			printf("Using default value for split, value provided was not an integer.\n");
+		}
+		else if (*endptr != '\0') {
+			defArgs.split = 2;
+			printf("Using default value for split, value provided was not an integer.\n");
+				}
+		else {};
+                printf("split into %d\n", defArgs.split);
                 break;
 
             case ':':
